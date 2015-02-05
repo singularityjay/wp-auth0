@@ -137,6 +137,9 @@ class WP_Auth0 {
     }
 
     public static function login_auto() {
+
+        if (isset($_GET['wle'])) return;
+
         $auto_login = absint(WP_Auth0_Options::get( 'auto_login' ));
 
         if ($auto_login && $_GET["action"] != "logout") {
